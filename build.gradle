@@ -1,0 +1,67 @@
+group 'com.examle'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+apply plugin: 'application'
+
+run {
+    standardInput = System.in
+}
+
+applicationDefaultJvmArgs = ["-Dgreeting.language=en", "-Xms64m", "-Xmx64m"]
+
+mainClassName = 'com.example.Main'
+
+repositories {
+    mavenCentral()
+}
+
+configurations {
+    // Force all logging through logback
+    runtime.exclude group: 'commons-logging', module: 'commons-logging'
+}
+
+dependencies {
+    // Dependency Injection framework
+    compile 'org.springframework:spring-web:4.3.3.RELEASE'
+    compile 'org.springframework:spring-core:4.3.3.RELEASE'
+    compile 'org.springframework:spring-context:4.3.3.RELEASE'
+    compile 'org.springframework:spring-beans:4.3.3.RELEASE'
+
+    compile 'javax.inject:javax.inject:1'
+
+    // Jax-RS implementation and glue code
+    compile 'org.jboss.resteasy:resteasy-jaxrs:3.0.19.Final'
+    compile 'org.jboss.resteasy:resteasy-spring:3.0.19.Final'
+    compile 'org.jboss.resteasy:resteasy-jackson2-provider:3.0.19.Final'
+    // TODO: Netty vs Jetty vs Undertow vs Grizzly
+
+    // Server
+    compile 'org.eclipse.jetty:jetty-servlet:9.3.12.v20160915'
+
+    // JSON + XML Serialization
+    compile 'com.fasterxml.jackson.core:jackson-core:2.8.3'
+    compile 'com.fasterxml.jackson.core:jackson-databind:2.8.3'
+    compile 'com.fasterxml.jackson.core:jackson-annotations:2.8.3'
+    compile 'com.fasterxml.jackson.jaxrs:jackson-jaxrs-json-provider:2.8.3'
+    compile 'com.fasterxml.jackson.jaxrs:jackson-jaxrs-base:2.8.3'
+    compile 'com.fasterxml.jackson.module:jackson-module-jaxb-annotations:2.8.3'
+
+    // Database
+    compile 'com.zaxxer:HikariCP:2.5.1'
+    compile 'mysql:mysql-connector-java:6.0.4'
+    //compile 'org.jooq:jooq:3.8.4'
+    //compile 'org.jooq:jooq-meta:3.8.4'
+    //compile 'org.jooq:jooq-codegen:3.8.4'
+
+    // Logging
+    compile 'ch.qos.logback:logback-classic:1.1.7'
+    compile 'ch.qos.logback:logback-core:1.1.7'
+    compile 'org.slf4j:slf4j-api:1.7.21'
+    compile 'org.slf4j:jcl-over-slf4j:1.7.21'
+
+    // TODO: Swagger for api endpoints (likely not required for an angularjs backend)
+    // compile 'io.swagger:swagger-jaxrs:1.5.0'
+
+    testCompile 'junit:junit:4.11'
+}
