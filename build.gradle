@@ -31,9 +31,9 @@ dependencies {
     compile 'javax.inject:javax.inject:1'
 
     // Jax-RS implementation and glue code
-    compile 'org.jboss.resteasy:resteasy-jaxrs:3.0.19.Final'
-    compile 'org.jboss.resteasy:resteasy-spring:3.0.19.Final'
-    compile 'org.jboss.resteasy:resteasy-jackson2-provider:3.0.19.Final'
+    compile 'org.jboss.resteasy:resteasy-jaxrs:3.1.0.CR1'
+    compile 'org.jboss.resteasy:resteasy-spring:3.1.0.CR1'
+    compile 'org.jboss.resteasy:resteasy-jackson2-provider:3.1.0.CR1'
     // TODO: Netty vs Jetty vs Undertow vs Grizzly
 
     // Server
