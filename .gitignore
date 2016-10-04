@@ -1,4 +1,9 @@
 *.DS_Store
 .gradle/
 .nb-gradle/
+.idea/
+.classpath
+.project
+.settings/
 build/
+/bin/
