@@ -2,5 +2,5 @@
 
 To run the example server
 ~~~~
-./graldew run
+./gradlew run
 ~~~~
